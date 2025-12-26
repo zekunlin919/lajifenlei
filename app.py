@@ -7,7 +7,7 @@ from ultralytics import YOLO
 from flask_cors import CORS
 
 
-MODEL = r"D:\yolo-garbage\A-garbage-classification-system-based-on-YOLOv11-main\runs\detect\custom_model_gpu_final\weights\best.pt"
+MODEL = "runs/detect/custom_model_gpu_final/weights/best.pt"
 UPLOAD_FOLDER = Path("uploads")
 
 app = Flask(__name__)
