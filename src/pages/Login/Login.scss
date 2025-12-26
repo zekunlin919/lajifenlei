@@ -1,0 +1,81 @@
+.container1 {
+    height: 100vh;
+    background-image: linear-gradient(to right, #fbc2eb, #a6c1ee);
+}
+
+.login-wrapper {
+    background-color: #fff;
+    width: 80%;
+    height: 100%;
+    border-radius: 15px;
+    padding: 0 5vw;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.header {
+    font : {
+        family: '宋体';
+        weight: 700;
+    }
+    text-align: center;
+    line-height: 200px;
+}
+
+.input-item {
+    display: block;
+    width: 100%;
+    margin-bottom: 4vh;
+    border: 0;
+    padding: 1vh;
+    border-bottom: 1px solid rgb(128, 125, 125);
+    font: {
+        size: 15px;
+        family: '宋体';
+    }
+    outline: none;
+}
+
+.input-item:placeholder {
+    text-transform: uppercase;
+}
+
+
+.login-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 10vh;
+    font-family: '宋体';
+    font-weight: 700;
+    .btn {
+        text-align: center;
+        padding: 2vh;
+        margin-right: 4vw;
+        width: 40%;
+        margin-top: 8vh;
+        background-image: linear-gradient(to right, #a6c1ee, #fbc2eb);
+        color: #fff;
+        &:hover {
+            cursor: pointer;
+            color: #2980ea;
+            text-decoration: underline;
+        }
+    }
+    
+}
+.msg {
+    text-align: center;
+    line-height: 88px;
+}
+
+a {
+    text-decoration-line: none;
+    color: #abc1ee;
+    &:hover {
+        text-decoration: underline;
+    }
+}

@@ -1,0 +1,118 @@
+.column {
+    // 【核心修改1】大幅减小顶部间距，让整个上传区域上移
+    margin-top: 0.5vw; // 从2vw改为0.5vw，减少向下偏移
+    display: flex;
+    flex-wrap: wrap;
+    // 【核心修改2】元素靠上排列，而非居中，避免整体向下
+    align-items: flex-start; // 从center改为flex-start
+    justify-content: center;
+    gap: 1.5vw; 
+    position: relative; 
+    // 【核心修改3】减小上下内边距，避免容器过高
+    padding: 0.5vw 2vw; // 从1vw 2vw改为0.5vw 2vw
+    // 【核心修改4】减小最小高度，避免容器向下延伸
+    min-height: 160px; // 从220px改为160px
+    box-sizing: border-box; 
+
+    .characters {
+        font: {
+            size: clamp(1.2rem, 2.5vw, 2.5rem);
+            family: "楷体", "KaiTi", serif;
+            weight: 500;
+        };
+        color: #2c3e50;
+        margin-right: 0.2vw;
+        // 【新增】标题单独上移，避免和按钮挤在一起
+        margin-top: 0.5vw;
+    }
+
+    .input {
+        display: none;
+    }
+
+    .input-file-button {
+        min-width: 120px; 
+        white-space: nowrap;
+        height: clamp(40px, 3.5vw, 60px);
+        width: clamp(120px, 15%, 200px);
+        text-align: center;
+        color: #2980b9;
+        line-height: clamp(40px, 3.5vw, 60px);
+        margin-right: 4vw;
+        padding: 0 0.8vw;
+        text-decoration: none;
+        border-bottom: 2px solid transparent;
+        font: {
+            size: clamp(1rem, 2vw, 1.8rem);
+            family: "宋体", "SimSun", sans-serif;
+        };
+        transition: all 0.3s ease;
+        border-radius: 6px;
+        &:hover {
+            cursor: pointer;
+            background-color: #f1f9ff;
+            border-bottom: 2px solid #2980b9;
+            color: #1a5f8b;
+        }
+    }
+
+    .post-btn {
+        position: absolute;
+        // 【核心修改5】基于靠上的容器，降低top值（从85%改为70%）
+        top: 70%; // 从85%改为70%，上移确认按钮
+        left: 50%; 
+        transform: translateX(-50%); 
+        background-color: #3498db;
+        border: 1px solid #bdc3c7;
+        border-radius: 8px;
+        height: clamp(40px, 3.5vw, 60px);
+        padding: 0 1.5vw;
+        font: {
+            size: clamp(1rem, 2vw, 1.8rem);
+            family: "宋体", "SimSun", sans-serif;
+            weight: 500;
+        };
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+        z-index: 10; 
+        &:hover {
+            cursor: pointer;
+            background-color: #2980b9;
+            color: #fff;
+            text-decoration: none;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+    }
+
+    .file-name {
+        position: absolute;
+        // 【核心修改6】基于靠上的容器，降低top值（从50%改为40%）
+        top: 40%; // 从50%改为40%，上移预览按钮
+        left: 50%; 
+        transform: translateX(-50%); 
+        margin-right: 0; 
+        z-index: 15; 
+        height: clamp(40px, 3.5vw, 60px);
+        line-height: clamp(40px, 3.5vw, 60px);
+        max-width: 200px;
+        word-wrap: break-word;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-align: center; 
+        font: {
+            size: clamp(0.8rem, 1vw, 1.2rem);
+            family: "宋体", "SimSun", sans-serif;
+        };
+        color: #2980b9;
+        text-decoration: none;
+        border-bottom: 1px solid transparent;
+        transition: all 0.3s ease;
+        &:hover {
+            cursor: pointer;
+            color: #1a5f8b;
+            border-bottom: 1px solid #2980b9;
+        }
+    }
+}

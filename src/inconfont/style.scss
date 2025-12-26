@@ -1,0 +1,45 @@
+// 引入图标字体核心样式（保证图标基础显示）
+@import url(./iconfont.css);
+
+// 通用图标样式类（统一复用，便于维护）
+.fontstyle {
+  font-size: clamp(1rem, 1.5rem, 2vw); // 响应式字号，适配不同屏幕
+  color: #cccccc; // 统一颜色格式（十六进制），便于维护
+  font-weight: normal; // 明确字体权重，避免继承导致图标变形
+  transition: all 0.2s ease; // 新增过渡动画，hover交互更细腻
+}
+
+// 垃圾分类主图标（核心业务图标，单独放大样式）
+.icon-375 {
+  font-size: clamp(2rem, 3rem, 3.5vw); // 响应式大号字体，适配小屏幕
+  color: #f3f3f2; // 统一为十六进制格式，与通用样式配色协调
+  font-weight: 600; // 稍加粗，突出主图标视觉层级
+  transition: all 0.2s ease; // 新增过渡动画
+}
+
+// 其他图标：继承通用样式（修复@extend语法空格错误）
+.icon-xinxi {
+  @extend .fontstyle;
+}
+
+.icon-jishufuwu {
+  @extend .fontstyle;
+}
+
+.icon-tuandui {
+  @extend .fontstyle;
+}
+
+.icon-logo {
+  @extend .fontstyle;
+}
+
+.icon-geren {
+  @extend .fontstyle;
+}
+
+// 可选：新增图标hover交互（提升体验，无功能影响）
+.iconfont:hover {
+  color: #3498db; // 环保蓝，贴合垃圾分类主题
+  transform: scale(1.05); // 轻微放大，增强交互感知
+}

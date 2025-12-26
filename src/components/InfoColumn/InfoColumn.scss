@@ -1,0 +1,62 @@
+// 通用定位样式（修复@extend语法规范，增加过渡基础）
+.pos {
+    position: absolute;
+    top: 2vh;
+    transition: all 0.3s ease; // 统一过渡动画，提升交互流畅度
+}
+
+.info-column {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(238, 235, 235, 0);
+
+    img {
+        height: 80%;
+        object-fit: cover;
+        opacity: 0.6;
+        transition: opacity 0.5s ease; // 背景图透明度过渡
+        &:hover {
+            opacity: 0.7; // 鼠标悬浮背景图微亮，增强层次感
+        }
+    }
+
+    // 内容部分
+    .info-content {
+        position: absolute;
+        width: 100%;
+        height: 50%;
+        top: 0%;
+        left: 0%;
+        
+        .back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            // 优化渐变效果：更自然的暗度过渡，适配垃圾分类环保主题
+            background: linear-gradient(to bottom, rgba(0, 20, 0, 0.4), rgba(0, 0, 0, 0));
+        }
+        
+        h1 {
+    @extend .pos;
+    top: 4vh;
+    left: 3vw;
+    font: {
+      size: clamp(2rem, 3vw, 3rem);
+      family: "楷体", "KaiTi", serif;
+      weight: 600;
+    };
+    color: #fff; // 文字改为白色，和半透明背景形成对比
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    letter-spacing: 0.1vw;
+
+    // 【核心新增：标题背景，适配当前淡色调界面】
+    background: linear-gradient(to right, rgba(173, 216, 230, 0.6), rgba(147, 112, 219, 0.6)); // 淡蓝→淡紫半透明渐变
+    padding: 0.5vw 2vw; // 给标题加内边距，让背景包裹文字
+    border-radius: 8px; // 圆角，更柔和
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); // 轻阴影，提升层次感
+  }
+
+    }
+}

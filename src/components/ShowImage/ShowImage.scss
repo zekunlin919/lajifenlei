@@ -1,0 +1,50 @@
+.show-img {
+    width: 100%;
+    position: relative;
+    min-height: 400px; // 新增：设置最小高度，避免无图片时容器塌陷
+    padding: 2vw 1vw; // 新增：增加内边距，避免内容贴边
+    box-sizing: border-box; // 新增：盒模型规范，padding不影响宽度
+
+    h2 {
+        font: {
+            // 响应式字号：最小16px，最大24px，适配手机/PC
+            size: clamp(16px, 1.5vw, 24px);
+            weight: 700; // 用数字值替代bold，兼容性更好
+            family: "宋体", "SimSun", sans-serif; // 增加字体兜底
+        };
+        width: clamp(80px, 6.5vw, 120px); // 响应式宽度，避免小屏幕过窄
+        padding: 0.5vw 1vw; // 新增：内边距，文字不贴边
+        margin: 0 0 1vw 0; // 新增：底部间距，与图片区分
+        border: {
+            right: 1px solid #e0e0e0; // 优化边框色，更柔和
+            bottom: 1px solid #e0e0e0;
+            radius: 0 0 8px 0; // 增大圆角，更现代
+        };
+        color: #2c3e50; // 新增：文字颜色，提升可读性
+        transition: all 0.2s ease; // 新增：过渡动画，hover更细腻
+        &:hover {
+            border-color: #3498db; // 新增：hover边框变色，提升交互感知
+            color: #3498db;
+        }
+    }
+
+    .res-img {
+        position: absolute;
+        top: 50%; // 优化：从60%改为50%，结合translate实现垂直+水平居中
+        left: 50%;
+        transform: translate(-50%, -50%); // 新增Y轴偏移，真正居中
+        width: clamp(280px, 40%, 800px); // 响应式宽度：最小280px，避免小屏幕过窄
+        height: auto;
+        max-height: 80vh; // 新增：最大高度，避免图片超出视口
+        object-fit: contain; // 新增：保持图片比例，不拉伸变形
+        border-radius: 8px; // 新增：图片圆角，更精致
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1); // 新增：轻阴影，提升立体感
+        border: 1px solid #f1f1f1; // 新增：细边框，区分图片与背景
+        // 新增：加载过渡，避免图片闪现
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        &.loaded { // 配合JS添加loaded类，实现渐显效果
+            opacity: 1;
+        }
+    }
+}

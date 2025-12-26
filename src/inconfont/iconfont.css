@@ -1,0 +1,53 @@
+
+@font-face {
+  font-family: "iconfont"; /* 图标字体名称，与业务保持一致 */
+  font-display: swap; /* 优化字体加载策略：先显示系统字体，加载完成后替换，避免FOIT */
+
+  src: 
+    url('iconfont.woff2?t=1735717355698') format('woff2'),
+    url('iconfont.woff?t=1735717355698') format('woff'),
+    url('iconfont.ttf?t=1735717355698') format('truetype');
+
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: clamp(14px, 16px, 1.2vw); 
+  font-style: normal;
+  font-weight: normal; 
+  line-height: 1; 
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  display: inline-block;
+  vertical-align: middle;
+
+  transition: all 0.2s ease;
+}
+
+
+.icon-375:before {
+  content: "\e752";
+}
+.icon-logo:before {
+  content: "\e60c";
+}
+
+
+.icon-geren:before {
+  content: "\e657";
+}
+.icon-tuandui:before {
+  content: "\e604";
+}
+
+.icon-xinxi:before {
+  content: "\e763";
+}
+.icon-jishufuwu:before {
+  content: "\eb64";
+}

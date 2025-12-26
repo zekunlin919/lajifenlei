@@ -1,0 +1,163 @@
+// 全局样式重置：统一盒模型、清除默认边距
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; // 新增：清除默认padding，布局更规整
+  font-family: "宋体", "SimSun", sans-serif; // 全局字体兜底，兼容不同系统
+}
+
+// 背景图片样式：全屏覆盖，低透明度作为底层背景
+.background-img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; // 保持背景图比例，不拉伸
+  z-index: -1;
+  opacity: 0.5;
+  transition: opacity 0.5s ease; // 新增：背景图透明度过渡，更柔和
+}
+
+// 页面核心容器：100vh全屏，统一控制子元素布局
+.container {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden; // 新增：避免内容溢出视口
+
+  // 页面标题：居中显示，带白色半透明背景
+  .title {
+    width: clamp(300px, 45%, 800px); // 响应式宽度，避免小屏幕过窄/过宽
+    height: 10vh;
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    // 响应式字号：最小2rem，最大5.22vw，适配手机/PC
+    font-size: clamp(2rem, 5.22vw, 4rem);
+    line-height: 10vh;
+    text-align: center;
+    font-weight: 600; // 标题加粗，提升视觉焦点
+    color: #2c3e50; // 优化文字颜色，更易读
+
+    .background {
+      position: absolute;
+      z-index: -1;
+      background-color: #fff;
+      opacity: 0.7;
+      width: 100%;
+      height: 100%;
+      border-radius: 8px; // 新增：标题背景圆角，更精致
+    }
+  }
+
+  // 黑色半透明遮罩：增强前景内容对比度
+  .modify-background {
+    position: absolute;
+    z-index: 1;
+    background-color: #000;
+    width: 100%;
+    height: 100%;
+    opacity: 0.4;
+  }
+
+  // 修改窗口：居中显示，白色背景框
+  .modify-window {
+    position: absolute;
+    display: flex; // 修复：补充display:flex，配合justify-content:center生效
+    justify-content: center;
+    align-items: center; // 新增：垂直居中内容
+    width: clamp(300px, 50%, 700px); // 响应式宽度
+    height: 30vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    background-color: #fff;
+    // 修复：原border语法错误，修正为标准写法
+    border: 1px solid #ccc;
+    border-radius: 8px; // 增大圆角，更现代
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1); // 新增：轻阴影，提升立体感
+  }
+}
+
+// 上传区域容器：居中显示，白色半透明背景框 → 核心修改：调整位置和间距，避免遮挡
+.post-column {
+  display: flex;
+  position: absolute;
+  top: 25%; // 核心修改1：从30%上移到25%，预留更多下方空间
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  height: clamp(80px, 10vw, 150px); // 响应式高度，避免小屏幕过高
+  align-items: center;
+  justify-content: center;
+  z-index: 5; // 核心修改2：提升层级，避免被其他元素覆盖
+
+  .background1 {
+    position: absolute;
+    z-index: -1;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px; // 增大圆角，与标题统一
+    opacity: 0.8;
+    width: 100%;
+    height: 80%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08); // 新增：轻阴影，提升层次感
+  }
+}
+
+// 结果展示表格容器：居中布局 → 核心修改：调整位置，和上传区域拉开间距
+.user-show-table {
+  display: flex;
+  position: absolute;
+  top: 50%; // 核心修改3：从60%下移到50%，和上传区域（25%）拉开足够间距
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  height: 35vh; // 核心修改4：从40vh略减，避免和底部退出按钮重叠
+  // 新增：默认背景，避免内容未加载时空白
+  background-color: rgba(255,255,255,0.8);
+  border-radius: 8px;
+  border: 1px solid #eee;
+  z-index: 4; // 核心修改5：合理层级，低于上传区但高于背景
+  padding: 1vw; // 新增：内边距，预览内容不贴边
+}
+
+// 退出按钮：居中显示，hover交互效果 → 微调位置，避免和展示区重叠
+.quit {
+  height: 5vh;
+  width: clamp(80px, 10%, 150px); // 响应式宽度，避免小屏幕过窄
+  position: absolute;
+  bottom: 8%; // 核心修改6：从5%下移到8%，和展示区拉开间距
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f0eded;
+  border: 1px solid #ccc;
+  border-radius: 8px; // 增大圆角，统一风格
+  font-size: clamp(1rem, 1.5vw, 1.2rem); // 响应式字号
+  color: #333;
+  transition: all 0.3s ease; // 新增：过渡动画，hover更流畅
+
+  &:hover {
+    color: #2980b9; // 优化hover颜色，贴合环保主题
+    background-color: #e8f4f8; // 优化hover背景，更柔和
+    cursor: pointer;
+    text-decoration: underline;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1); // 新增：hover阴影，增强交互
+  }
+}
+
+// 隐藏类：控制元素显隐
+.none {
+  display: none;
+}
+
+// 新增：预览图片专属样式，避免被容器裁切/遮挡
+.preview-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; // 保持图片比例，不拉伸/裁切
+  margin: 0 auto; // 水平居中
+  border-radius: 6px; // 圆角，和整体风格统一
+}

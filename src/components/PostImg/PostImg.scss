@@ -1,0 +1,74 @@
+// .column {
+//     margin-top: 2vw;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     .characters {
+//         margin-right: 0.2vw;
+//         font: {
+//             size: 2.5vw;
+//             family: '楷体';
+//         }
+//     }
+//     .input {
+//         display: none;
+//     }
+//     .input-file-button {
+//         height: 3.5vw;
+//         text-align: center;
+//         border: 1px solid #ccc{
+//             radius: 5px;
+//         }
+//         line-height: 3.5vw;
+//         margin-right: 4vw;
+//         width: 20%;
+//         padding-left: 5px;
+//         font: {
+//             size: 2vw;
+//             family: '宋体';
+//         }
+//         &:hover {
+//             cursor: pointer;
+//             text-decoration: underline;
+//             background-color: #ccc;
+//         }
+//     }
+//     .post-btn {
+//         background-color: #fff;
+//         border: 1px solid #ccc{
+//             radius: 5px;
+//         };
+//         height: 3.5vw;
+//         width: 10vw;
+//         font: {
+//             size: 2vw;
+//             family: '宋体';
+//         }
+//         &:hover {
+//             cursor: pointer;
+//             background-color: #ccc;
+//             text-decoration: underline;
+//         }
+//     }
+//     .file-name {
+//         margin-right: 1vw;
+//         height: 3.5vw;
+//         word-wrap: break-word;
+//         display: -webkit-box;
+//         width: 10%;
+//         overflow: hidden;
+//         -webkit-box-orient: vertical;
+//         -webkit-line-clamp: 2;
+//         font: {
+//             size: 1.5vw;
+//             family: '宋体';
+//         }
+//         text-decoration: underline;
+//         color: #3c3fe5;
+//         &:hover {
+//             cursor: pointer;
+//         }
+//     }
+//
+// }
+//
