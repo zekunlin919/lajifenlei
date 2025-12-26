@@ -1,0 +1,19 @@
+# YOLO 核心大文件（必忽略）
+weights/          # 模型权重文件夹（.pt/.pth 文件都在这）
+dataset/          # 数据集文件夹（图片/视频/标注文件）
+runs/             # 训练日志/预测结果（含大量图片/视频）
+*.pt              # 单独的模型文件
+*.pth             # 权重文件
+*.zip             # 压缩包
+*.tar.gz          # 压缩包
+*.7z              # 压缩包
+
+# 开发环境无关文件
+.venv1/           # 虚拟环境
+venv/             # 虚拟环境
+.venv/            # 虚拟环境
+__pycache__/      # Python 缓存
+*.log             # 日志文件
+*.tmp             # 临时文件
+.DS_Store         # Mac 系统文件
+Thumbs.db         # Windows 缩略图文件
